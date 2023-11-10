@@ -4,39 +4,41 @@ import sun.rmi.runtime.Log;
 import java.util.Scanner;
 import java.util.*;
 public class Admin extends Guest{
-    public static final String adminPassword = "admin";
+    public static String adminPassword = "admin";
 
     public void addBook(Scanner sc){
-        System.out.println("Enter book title you want to add: ");
+        System.out.print("Enter book title you want to add: ");
         String addTitle = sc.nextLine();
-        System.out.println("Enter book author: ");
+        System.out.print("Enter book author: ");
         String addAuthorName = sc.nextLine();
-        System.out.println("Enter book genre: ");
+        System.out.print("Enter book genre: ");
         String addGenre = sc.nextLine();
-        System.out.println("Enter published date: ");
+        System.out.print("Enter published date: ");
         String addPublishedDate = sc.nextLine();
         Book newBook = new Book(addTitle, addAuthorName, addGenre, addPublishedDate);
         books.add(newBook);
     }
     public void deleteBook(Scanner sc){
         System.out.print("Enter book title you want to remove: ");
-        int ok = 1;
+        Boolean canDelete = false;
         String removeTitle = sc.nextLine();
         for (Book removeBook : books){
             if (removeBook.getTitle().equals(removeTitle)){
                 books.remove(removeBook);
                 System.out.println("Successfully delete book!");
-                ok = 0;
+                canDelete = true;
                 break;
             }
         }
-        if (ok == 1) System.out.println("Not found!");
+        if (canDelete == false) System.out.println("Not found!");
     }
     public void updateBook(Scanner sc){
-        System.out.print("Enter title of book you want to update:");
+        System.out.print("Enter title of book you want to update: " );
+        Boolean found = false;
         String updatedTitle = sc.nextLine();
         for (Book updatedBook : books){
             if (updatedBook.getTitle().equals(updatedTitle)){
+                found = true;
                 System.out.print("Enter updated title: ");
                 updatedBook.setTitle(sc.nextLine());
                 System.out.print("Enter updated author: ");
@@ -45,23 +47,24 @@ public class Admin extends Guest{
                 updatedBook.setGenre(sc.nextLine());
                 System.out.print("Enter updated published date: ");
                 updatedBook.setDate(sc.nextLine());
+                System.out.println();
                 break;
             }
-            else System.out.println("Not found!");
         }
+        if (found == false) System.out.println("Not found!");
     }
     public void adminFunctions(Scanner sc){
         while (true){
-            System.out.println("Admin Options: ");
+            System.out.println("   Admin Options: ");
             System.out.println("1. Add book.");
             System.out.println("2. Delete book.");
             System.out.println("3. Update book.");
             System.out.println("4. Search book.");
             System.out.println("5. View all books.");
             System.out.println("6. Log out admin account.");
-            System.out.println("Enter your option: ");
-            int option = sc.nextInt();
-            sc.nextLine();
+            System.out.print("Enter your option: ");
+            int option = Integer.parseInt(sc.nextLine());
+//            sc.nextLine();
             switch (option){
                 case 1:
                     addBook(sc);
@@ -90,7 +93,7 @@ public class Admin extends Guest{
                     break;
                 case 6:
                     System.out.println("Log out!");
-                    LogIn.LogIn();
+                    LogIn.logIn();
                     return;
                 default:
                     System.out.println("Invalid option! Please re-enter!");

@@ -35,10 +35,5 @@ public class Book {
     public String getDate() {
         return date;
     }
-    public void getBookInfo (){
-        System.out.println("Book title: " + this.getTitle());
-        System.out.println("Book author: " + this.getAuthor());
-        System.out.println("Book genre: " + this.getGenre());
-        System.out.println("Published date: " + this.getDate());
-    }
+
 }
