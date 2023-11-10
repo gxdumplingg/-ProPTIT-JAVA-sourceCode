@@ -17,29 +17,31 @@ public class Admin extends Guest{
         books.add(newBook);
     }
     public void deleteBook(Scanner sc){
-        System.out.println("Enter book title you want to remove: ");
+        System.out.print("Enter book title you want to remove: ");
+        int ok = 1;
         String removeTitle = sc.nextLine();
         for (Book removeBook : books){
             if (removeBook.getTitle().equals(removeTitle)){
                 books.remove(removeBook);
                 System.out.println("Successfully delete book!");
-                return;
+                ok = 0;
+                break;
             }
         }
-        System.out.println("Not found!");
+        if (ok == 1) System.out.println("Not found!");
     }
     public void updateBook(Scanner sc){
         System.out.println("Enter title of book you want to update:");
         String updatedTitle = sc.nextLine();
         for (Book updatedBook : books){
             if (updatedBook.getTitle().equals(updatedTitle)){
-                System.out.println("Enter updated title: ");
+                System.out.print("Enter updated title: ");
                 updatedBook.setTitle(sc.nextLine());
-                System.out.println("Enter updated author: ");
+                System.out.print("Enter updated author: ");
                 updatedBook.setAuthor(sc.nextLine());
-                System.out.println("Enter updated genre: ");
+                System.out.print("Enter updated genre: ");
                 updatedBook.setGenre(sc.nextLine());
-                System.out.println("Enter updated published date: ");
+                System.out.print("Enter updated published date: ");
                 updatedBook.setDate(sc.nextLine());
                 break;
             }
@@ -47,18 +49,20 @@ public class Admin extends Guest{
         }
     }
     public void adminFunctions(Scanner sc){
-        while (true){
+//        while (true){
+            System.out.println("Admin Options: ");
             System.out.println("1. Add book.");
             System.out.println("2. Delete book.");
             System.out.println("3. Update book.");
             System.out.println("4. Search book.");
             System.out.println("5. View all books.");
             System.out.println("6. Log out admin account.");
-            System.out.println("\nEnter your option: ");
+            System.out.println("Enter your option: ");
             int option = sc.nextInt();
+            sc.nextLine();
             switch (option){
                 case 1:
-                    this.addBook(sc);
+                    addBook(sc);
                     break;
                 case 2:
                     deleteBook(sc);
@@ -67,19 +71,28 @@ public class Admin extends Guest{
                     updateBook(sc);
                     break;
                 case 4:
-                    System.out.println("Enter book info: ");
+                    System.out.print("Enter book info: ");
                     String bookInfo = sc.nextLine();
                     super.searchBook(bookInfo);
                     break;
                 case 5:
-                    super.viewBooks();
+                    if (!books.isEmpty()) {
+                        for (int i = 0; i < books.size(); ++i) {
+                            System.out.println("Book title: " + books.get(i).getTitle());
+                            System.out.println("Book author: " + books.get(i).getAuthor());
+                            System.out.println("Book genre: " + books.get(i).getGenre());
+                            System.out.println("Published date: " + books.get(i).getDate());
+                        }
+                    }
+                    else System.out.println("The library is now empty!");
                     break;
                 case 6:
                     System.out.println("Log out!");
                     break;
                 default:
                     System.out.println("Invalid option! Please re-enter!");
+                    break;
             }
-        }
+//        }
     }
 }

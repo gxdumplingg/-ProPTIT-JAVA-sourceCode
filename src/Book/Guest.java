@@ -13,30 +13,38 @@ public class Guest extends Main{
             }
         }
     }
-    public void viewBooks (){
-        for (Book viewBook : books){
-            viewBook.getBookInfo();
-        }
-    }
+//    public void viewBooks (){
+//        for (Book viewBook : books){
+//            viewBook.getBookInfo();
+//        }
+//    }
     public void guestFunctions(Scanner sc){
-        while (true) {
+//        while (true) {
+            System.out.println("Guest options: ");
             System.out.println("1. Search book.");
             System.out.println("2. View all books.");
             System.out.println("Enter your option: ");
             int option = sc.nextInt();
+            sc.nextLine();
             switch (option) {
                 case 1:
-                    System.out.println("Enter book info: ");
+                    System.out.print("Enter book info: ");
                     String bookInfo = sc.nextLine();
                     this.searchBook(bookInfo);
                     break;
                 case 2:
-                    System.out.println("View all books: ");
-                    this.viewBooks();
+                    System.out.print("View all books: ");
+                    for (int i = 0; i<books.size(); ++i){
+                        System.out.println("Book title: " + books.get(i).getTitle());
+                        System.out.println("Book author: " + books.get(i).getAuthor());
+                        System.out.println("Book genre: " + books.get(i).getGenre());
+                        System.out.println("Published date: " + books.get(i).getDate());
+                    }
                     break;
                 default:
                     System.out.println("Invalid option! Please re-enter!");
+                    break;
             }
-        }
+//        }
     }
 }
