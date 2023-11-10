@@ -1,4 +1,6 @@
 package Book;
+import sun.rmi.runtime.Log;
+
 import java.util.Scanner;
 import java.util.*;
 public class Admin extends Guest{
@@ -31,7 +33,7 @@ public class Admin extends Guest{
         if (ok == 1) System.out.println("Not found!");
     }
     public void updateBook(Scanner sc){
-        System.out.println("Enter title of book you want to update:");
+        System.out.print("Enter title of book you want to update:");
         String updatedTitle = sc.nextLine();
         for (Book updatedBook : books){
             if (updatedBook.getTitle().equals(updatedTitle)){
@@ -49,7 +51,7 @@ public class Admin extends Guest{
         }
     }
     public void adminFunctions(Scanner sc){
-//        while (true){
+        while (true){
             System.out.println("Admin Options: ");
             System.out.println("1. Add book.");
             System.out.println("2. Delete book.");
@@ -88,11 +90,12 @@ public class Admin extends Guest{
                     break;
                 case 6:
                     System.out.println("Log out!");
-                    break;
+                    LogIn.LogIn();
+                    return;
                 default:
                     System.out.println("Invalid option! Please re-enter!");
                     break;
             }
-//        }
+        }
     }
 }
