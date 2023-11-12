@@ -2,14 +2,19 @@ package Book;
 
 public class Book {
 //    public static int bookNumbers = 0;
-    private String title, author, genre, date;
-    public Book(String title, String author, String genre, String date){
+
+    private String id, title, author, genre, date;
+    public Book(String id, String title, String author, String genre, String date){
+        this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.date = date;
     }
-    // setter
+
+    public void setId(String id) {
+        this.id = id;
+    }
     public void setTitle(String title){
         this.title = title;
     }
@@ -22,7 +27,10 @@ public class Book {
     public void setDate(String date) {
         this.date = date;
     }
-    // getter
+
+    public String getID() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }

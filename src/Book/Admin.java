@@ -7,7 +7,9 @@ public class Admin extends Guest{
     public static String adminPassword = "admin";
 
     public void addBook(Scanner sc){
-        System.out.print("Enter book title you want to add: ");
+        System.out.print("Enter ID of the book you want to add: ");
+        String addID = sc.nextLine();
+        System.out.print("Enter book title: ");
         String addTitle = sc.nextLine();
         System.out.print("Enter book author: ");
         String addAuthorName = sc.nextLine();
@@ -15,15 +17,15 @@ public class Admin extends Guest{
         String addGenre = sc.nextLine();
         System.out.print("Enter published date: ");
         String addPublishedDate = sc.nextLine();
-        Book newBook = new Book(addTitle, addAuthorName, addGenre, addPublishedDate);
+        Book newBook = new Book(addID, addTitle, addAuthorName, addGenre, addPublishedDate);
         books.add(newBook);
     }
     public void deleteBook(Scanner sc){
-        System.out.print("Enter book title you want to remove: ");
-        Boolean canDelete = false;
-        String removeTitle = sc.nextLine();
+        System.out.print("Enter book ID you want to remove: ");
+        boolean canDelete = false;
+        String removeID = sc.nextLine();
         for (Book removeBook : books){
-            if (removeBook.getTitle().equals(removeTitle)){
+            if (removeBook.getID().equals(removeID)){
                 books.remove(removeBook);
                 System.out.println("Successfully delete book!");
                 canDelete = true;
@@ -33,12 +35,14 @@ public class Admin extends Guest{
         if (canDelete == false) System.out.println("Not found!");
     }
     public void updateBook(Scanner sc){
-        System.out.print("Enter title of book you want to update: " );
-        Boolean found = false;
-        String updatedTitle = sc.nextLine();
+        System.out.print("Enter ID of book you want to update: " );
+        String updatedID = sc.nextLine();
+        boolean found = false;
         for (Book updatedBook : books){
-            if (updatedBook.getTitle().equals(updatedTitle)){
+            if (updatedBook.getID().equals(updatedID)){
                 found = true;
+                System.out.print("Enter updated ID: ");
+                updatedBook.setId(sc.nextLine());
                 System.out.print("Enter updated title: ");
                 updatedBook.setTitle(sc.nextLine());
                 System.out.print("Enter updated author: ");
@@ -82,18 +86,25 @@ public class Admin extends Guest{
                     break;
                 case 5:
                     if (!books.isEmpty()) {
-                        for (int i = 0; i < books.size(); ++i) {
-                            System.out.println("Book title: " + books.get(i).getTitle());
-                            System.out.println("Book author: " + books.get(i).getAuthor());
-                            System.out.println("Book genre: " + books.get(i).getGenre());
-                            System.out.println("Published date: " + books.get(i).getDate());
+//                        for (int i = 0; i < books.size(); ++i) {
+//                            System.out.println("Book title: " + books.get(i).getTitle());
+//                            System.out.println("Book author: " + books.get(i).getAuthor());
+//                            System.out.println("Book genre: " + books.get(i).getGenre());
+//                            System.out.println("Published date: " + books.get(i).getDate());
+//                        }
+                        for(Book book : books){
+                            System.out.println("Book ID: " + book.getID());
+                            System.out.println("Book title: " + book.getTitle());
+                            System.out.println("Book author: " + book.getAuthor());
+                            System.out.println("Book genre: " + book.getGenre());
+                            System.out.println("Published date: " + book.getDate());
                         }
                     }
                     else System.out.println("The library is now empty!");
                     break;
                 case 6:
                     System.out.println("Log out!");
-                    LogIn.logIn();
+                    Login.logIn();
                     return;
                 default:
                     System.out.println("Invalid option! Please re-enter!");
