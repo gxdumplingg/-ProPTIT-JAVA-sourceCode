@@ -66,11 +66,11 @@ public class Admin extends Guest {
             case 1:
                 super.showList(productsList);
                 break;
-            case 2:
-                for (Product product : productsList) {
-                    product.productInfoTable();
-                }
-                break;
+//            case 2:
+//                for (Product product : productsList) {
+//                    product.productInfoTable();                       // em chưa hiểu cách vẽ bảng ạ
+//                }
+//                break;
 
         }
     }
