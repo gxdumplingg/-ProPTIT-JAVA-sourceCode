@@ -1,4 +1,6 @@
-package Book;
+package Library;
+
+
 import java.util.Scanner;
 
 public class Login {
@@ -9,7 +11,6 @@ public class Login {
         System.out.println("2. Guest");
         System.out.println("3. END.");
         System.out.print("Enter your log-in option: ");
-//        String username = sc.nextLine();
         int option = Integer.parseInt(sc.nextLine());
         switch (option){
             case 1:
@@ -18,7 +19,7 @@ public class Login {
                 if (password.equals(Admin.adminPassword)) {
                     System.out.println("Successfully logged in as an admin!");
                     Admin admin = new Admin();
-                    admin.adminFunctions(sc);
+                    admin.adminFunctions();
                     break;
                 }
                 else {
@@ -29,7 +30,7 @@ public class Login {
             case 2:
                 System.out.println("Successfully logged in as a guest!");
                 Guest guest = new Guest();
-                guest.guestFunctions(sc);
+                guest.guestFunctions();
                 break;
             default:
                 System.out.println("Goodbye!");
