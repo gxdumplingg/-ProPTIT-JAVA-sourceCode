@@ -37,7 +37,8 @@ public class Pen extends Product{
         System.out.println("Product ink type: " + getPenInkType());
         System.out.println("Product fineness: " + getPenFineness());
     }
-    public boolean comparePen(String info){
+    @Override
+    public boolean cmp(String info){
         return super.cmp(info) || super.compare(penColor, info) || super.compare(penMaterial, info) ||
                 super.compare(penInkType, info) || super.compare(penFineness, info) ;
     }

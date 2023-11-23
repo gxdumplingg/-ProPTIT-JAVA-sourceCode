@@ -30,7 +30,8 @@ public class Pencil extends Product{
         System.out.println("Product material: " + getPencilMaterial());
         System.out.println("Product hardness: " + getPencilHardness());
     }
-    public boolean comparePencil(String info){
+    @Override
+    public boolean cmp(String info){
         return super.cmp(info) || super.compare(pencilColor, info) || super.compare(pencilMaterial, info) ||
                 super.compare(pencilHardness, info);
     }

@@ -33,11 +33,14 @@ public class Product {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-    protected boolean compare(String a, String b){
+
+    // so sanh
+    public boolean compare(String a, String b){
         return a.toLowerCase().contains(b.toLowerCase());
     }
-    protected boolean cmp(String searchItem){
-        return compare(name, searchItem) || compare(price, searchItem) || compare(brand, searchItem);
+
+    public boolean cmp(String searchItem){
+        return compare (ID, searchItem) || compare(name, searchItem) || compare(price, searchItem) || compare(brand, searchItem);
     }
 
 

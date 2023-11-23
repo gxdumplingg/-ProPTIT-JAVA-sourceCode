@@ -15,23 +15,22 @@ public class Guest extends LibraryManagement {
     }
 
 public void searchingItem(String info) {
-        boolean found = false;
+    boolean found = false;
     if (productsList.isEmpty()) {
         System.out.println("Not found!");
         return;
     }
     for (Product product : productsList) {
-        if (product.getID().contains(info) || product.getName().contains(info) || product.getBrand().contains(info)
-                || product.getPrice().contains(info) || ((Book)product).getAuthor().contains(info) || ((Book)product).getGenre().contains(info)) {
+        if (product.cmp(info)) {
             found = true;
             product.getProductInfo();
             break;
         }
     }
-     if (!found) {
-         System.out.println("Not found!");
-         return;
-     }
+    if (!found) {
+        System.out.println("Not found!");
+        return;
+    }
 }
 
     public void guestFunctions() {
@@ -42,6 +41,7 @@ public void searchingItem(String info) {
             System.out.println("| 2. View all items           |");
             System.out.println("| 3. Log out                  |");
             System.out.println("-------------------------------");
+            System.out.print ("Enter your option: ");
             int option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case 1:

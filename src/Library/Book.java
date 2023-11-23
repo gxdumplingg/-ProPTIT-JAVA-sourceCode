@@ -63,7 +63,9 @@ public class Book extends Product {
         System.out.print("Enter product language: ");
         setLanguage(sc.nextLine());
     }
-    public boolean compareBook(String bookInfo){
+
+    @Override
+    public boolean cmp(String bookInfo){
         return super.cmp(bookInfo) || super.compare(author, bookInfo) || super.compare(genre, bookInfo) ||
                 super.compare(publisher, bookInfo) || super.compare(publishedYear, bookInfo) || super.compare(language, bookInfo);
     }

@@ -15,15 +15,19 @@ public class Admin extends Guest {
         switch (option) {
             case 1:
                 addItem(new Book());
+                System.out.println("Successfully added!");
                 break;
             case 2:
                 addItem(new Notebook());
+                System.out.println("Successfully added!");
                 break;
             case 3:
                 addItem(new Pen());
+                System.out.println("Successfully added!");
                 break;
             case 4:
                 addItem(new Pencil());
+                System.out.println("Successfully added!");
                 break;
         }
     }
@@ -34,15 +38,19 @@ public class Admin extends Guest {
         switch (option) {
             case 1:
                 updateBook();
+                System.out.println("Successfully updated!");
                 break;
             case 2:
                 updateNotebook();
+                System.out.println("Successfully updated!");
                 break;
             case 3:
                 updatePen();
+                System.out.println("Successfully updated!");
                 break;
             case 4:
                 updatePencil();
+                System.out.println("Successfully updated!");
                 break;
             default:
                 System.out.println("Invalid option! Please re-enter!");
@@ -91,7 +99,6 @@ public class Admin extends Guest {
             switch (option) {
                 case 1:
                     addItemMode(new Product());
-                    System.out.println("Successfully added!");
                     break;
                 case 2:
                     if (productsList.isEmpty()) {
@@ -99,7 +106,6 @@ public class Admin extends Guest {
                     }
                     else{
                         deleteItem();
-                        System.out.println("Successfully deleted!");
                     }
                     break;
                 case 3:
@@ -107,7 +113,6 @@ public class Admin extends Guest {
                         System.out.println("Cannot update! Try again!");
                     } else {
                         updateItem();
-                        System.out.println("Successfully updated!");
                     }
                     break;
                 case 4:

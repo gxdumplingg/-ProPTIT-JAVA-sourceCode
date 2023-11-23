@@ -33,6 +33,7 @@ public class LibraryManagement extends Product {
             if (product.getID().equals(itemID)) {
                 found = true;
                 productsList.remove(product);
+                System.out.println("Successfully deleted!");
                 break;
             }
         }

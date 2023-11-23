@@ -44,7 +44,8 @@ public class Notebook extends Product{
         System.out.println("Product paper material: " + getPaperMaterials());
         System.out.println("Product size: " + getSize());
     }
-    public boolean compareNotebook(String info){
+    @Override
+    public boolean cmp(String info){
         return super.cmp(info) || super.compare(pageNumbers, info) || super.compare(notebookType, info) ||
                 super.compare(notebookColor, info) || super.compare(paperMaterials, info) || super.compare(notebookSize, info);
     }
