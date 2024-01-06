@@ -53,30 +53,63 @@ public class LibraryManagement extends Product {
                 System.out.println("Not found!");
                 return;
             } else {
-                System.out.print("Enter updated ID: ");
+                book.addProductInfo();
+                System.out.print("Enter updated genre: ");
+                ((Book) book).setGenre();
+                System.out.print("Enter updated author: ");
+                ((Book) book).setAuthor();
+                System.out.print("Enter updated publisher: ");
+                ((Book) book).setPublisher();
+                System.out.print("Enter updated published year: ");
+                ((Book) book).setPublishedYear();
+                System.out.print("Enter updated language: ");
+                ((Book) book).setLanguage();
+                break;
             }
-            book.setID(sc.nextLine());
-            System.out.print("Enter updated title: ");
-            book.setName(sc.nextLine());
-            System.out.print("Enter updated brand: ");
-            book.setBrand(sc.nextLine());
-            System.out.print("Enter updated price: ");
-            book.setPrice(sc.nextLine());
-            System.out.print("Enter updated genre: ");
-            ((Book) book).setGenre(sc.nextLine());
-            System.out.print("Enter updated author: ");
-            ((Book) book).setAuthor(sc.nextLine());
-            System.out.print("Enter updated publisher: ");
-            ((Book) book).setPublisher(sc.nextLine());
-            System.out.print("Enter updated published year: ");
-            ((Book) book).setPublishedYear(sc.nextLine());
-            System.out.print("Enter updated language: ");
-            ((Book) book).setLanguage(sc.nextLine());
-            break;
         }
     }
 
-
+    public void editProduct(){
+        System.out.print("Enter product ID: ");
+        String productID = sc.nextLine();
+        for(Product product : productsList){
+            if (!product.getID().equals(productID)){
+                System.out.println("Not found!");
+                return;
+            }
+            else{
+                product.addProductInfo();
+                if (product instanceof Book){
+                    ((Book) product).setGenre();
+                    ((Book) product).setAuthor();
+                    ((Book) product).setPublisher();
+                    ((Book) product).setPublishedYear();
+                    ((Book) product).setLanguage();
+                    break;
+                }
+                else if (product instanceof Notebook){
+                    ((Notebook) product).setColor();
+                    ((Notebook) product).setPageNumbers();
+                    ((Notebook) product).setType();
+                    ((Notebook) product).setPaperMaterials();
+                    ((Notebook) product).setSize();
+                    break;
+                }
+                else if (product instanceof Pen){
+                    ((Pen) product).setPenColor();
+                    ((Pen) product).setPenInkType();
+                    ((Pen) product).setPenMaterial();
+                    ((Pen) product).setPenFineness();
+                    break;
+                }
+                else if (product instanceof Pencil){
+                    ((Pencil) product).setPencilColor();
+                    ((Pencil) product).setPencilMaterial();
+                    ((Pencil) product).setPencilHardness();
+                }
+            }
+        }
+    }
     public void updateNotebook() {
         System.out.print("Enter item ID: ");
         String itemID = sc.nextLine();
@@ -85,24 +118,12 @@ public class LibraryManagement extends Product {
                 System.out.println("Not found!");
                 return;
             } else {
-                System.out.print("Enter updated ID: ");
-                notebook.setID(sc.nextLine());
-                System.out.print("Enter updated title: ");
-                notebook.setName(sc.nextLine());
-                System.out.print("Enter updated brand: ");
-                notebook.setBrand(sc.nextLine());
-                System.out.print("Enter updated price: ");
-                notebook.setPrice(sc.nextLine());
-                System.out.print("Enter updated page number: ");
-                ((Notebook) notebook).setPageNumbers(sc.nextLine());
-                System.out.print("Enter updated notebook type: ");
-                ((Notebook) notebook).setType(sc.nextLine());
-                System.out.print("Enter updated cover color: ");
-                ((Notebook) notebook).setColor(sc.nextLine());
-                System.out.print("Enter updated paper material: ");
-                ((Notebook) notebook).setPaperMaterials(sc.nextLine());
-                System.out.print("Enter updated size: ");
-                ((Notebook) notebook).setSize(sc.nextLine());
+                notebook.addProductInfo();
+                ((Notebook) notebook).setPageNumbers();
+                ((Notebook) notebook).setType();
+                ((Notebook) notebook).setColor();
+                ((Notebook) notebook).setPaperMaterials();
+                ((Notebook) notebook).setSize();
                 break;
             }
         }
@@ -116,21 +137,10 @@ public class LibraryManagement extends Product {
                 System.out.println("Not found!");
                 return;
             } else {
-                System.out.print("Enter updated ID: ");
-                pen.setID(sc.nextLine());
-                System.out.print("Enter updated title: ");
-                pen.setName(sc.nextLine());
-                System.out.print("Enter updated brand: ");
-                pen.setBrand(sc.nextLine());
-                System.out.print("Enter updated price: ");
-                pen.setPrice(sc.nextLine());
-                System.out.print("Enter updated pen material: ");
-                ((Pen) pen).setPenMaterial(sc.nextLine());
-                System.out.print("Enter updated pen color: ");
-                ((Pen) pen).setPenColor(sc.nextLine());
-                System.out.print("Enter updated ink type: ");
-                ((Pen) pen).setPenInkType(sc.nextLine());
-                System.out.print("Enter updated pen fineness: ");
+                pen.addProductInfo();
+                ((Pen) pen).setPenMaterial();
+                ((Pen) pen).setPenColor();
+                ((Pen) pen).setPenInkType();
                 break;
             }
         }
@@ -144,20 +154,10 @@ public class LibraryManagement extends Product {
                 System.out.println("Not found!");
                 return;
             } else {
-                System.out.print("Enter updated ID: ");
-                pencil.setID(sc.nextLine());
-                System.out.print("Enter updated title: ");
-                pencil.setName(sc.nextLine());
-                System.out.print("Enter updated brand: ");
-                pencil.setBrand(sc.nextLine());
-                System.out.print("Enter updated price: ");
-                pencil.setPrice(sc.nextLine());
-                System.out.print("Enter updated pen material: ");
-                ((Pencil) pencil).setPencilMaterial(sc.nextLine());
-                System.out.print("Enter updated pen color: ");
-                ((Pencil) pencil).setPencilColor(sc.nextLine());
-                System.out.print("Enter updated pencil hardness: ");
-                ((Pencil) pencil).setPencilHardness(sc.nextLine());
+                pencil.addProductInfo();
+                ((Pencil) pencil).setPencilMaterial();
+                ((Pencil) pencil).setPencilColor();
+                ((Pencil) pencil).setPencilHardness();
                 break;
             }
         }

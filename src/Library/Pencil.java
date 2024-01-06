@@ -4,23 +4,26 @@ public class Pencil extends Product{
     private String pencilColor, pencilMaterial, pencilHardness;
 
     public String getPencilColor() {
-        return pencilColor;
+        return "Product color: " + pencilColor;
     }
     public String getPencilMaterial() {
-        return pencilMaterial;
+        return "Product material: " + pencilMaterial;
     }
     public String getPencilHardness() {
-        return pencilHardness;
+        return "Product hardness: " + pencilHardness;
     }
 
-    public void setPencilColor(String pencilColor) {
-        this.pencilColor = pencilColor;
+    public void setPencilColor() {
+        System.out.print("Enter product color: ");
+        pencilColor = sc.nextLine();
     }
-    public void setPencilMaterial(String pencilMaterial) {
-        this.pencilMaterial = pencilMaterial;
+    public void setPencilMaterial() {
+        System.out.print("Enter product material (plastic, wood): ");
+        pencilMaterial = sc.nextLine();
     }
-    public void setPencilHardness(String pencilHardness) {
-        this.pencilHardness = pencilHardness;
+    public void setPencilHardness() {
+        System.out.print("Enter product hardness (HB, 2B, 3B, 4B, 5B, 6B, 7B, 8B, 9B, 10B): ");
+        pencilHardness = sc.nextLine();
     }
 
     @Override
@@ -39,12 +42,9 @@ public class Pencil extends Product{
     @Override
     public void addProductInfo(){
         super.addProductInfo();
-        System.out.print("Enter product color: ");
-        setPencilColor(sc.nextLine());
-        System.out.print("Enter product material (plastic, wood): ");
-        setPencilMaterial(sc.nextLine());
-        System.out.print("Enter product hardness (HB, 2B, 3B, 4B, 5B, 6B, 7B, 8B, 9B, 10B): ");
-        setPencilHardness(sc.nextLine());
+        setPencilColor();
+        setPencilMaterial();
+        setPencilHardness();
     }
 
     public void productTable(){

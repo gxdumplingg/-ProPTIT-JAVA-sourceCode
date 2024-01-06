@@ -9,32 +9,37 @@ public class Product {
     public static ArrayList<Product> productsList = new ArrayList<>();
 
     public String getID() {
-        return ID;
+        return "Product ID: " + ID;
     }
     public String getName() {
-        return name;
+        return "Product name: " + name;
     }
     public String getPrice() {
-        return price;
+        return "Product price: " + price;
     }
     public String getBrand() {
-        return brand;
+        return "Product brand: " + brand;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID() {
+        System.out.print("Enter product ID: ");
+        ID = sc.nextLine();
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setName() {
+        System.out.print("Enter product name: ");
+        name = sc.nextLine();
     }
-    public void setPrice(String price) {
-        this.price = price;
+    public void setPrice() {
+        System.out.print("Enter product price: ");
+        price = sc.nextLine();
+
     }
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setBrand() {
+        System.out.print("Enter product brand: ");
+        brand = sc.nextLine();
     }
 
-    // so sanh
+    // compare
     public boolean compare(String a, String b){
         return a.toLowerCase().contains(b.toLowerCase());
     }
@@ -52,16 +57,31 @@ public class Product {
     }
 
     public void addProductInfo(){
-        System.out.print("Enter product ID: ");
-        ID=sc.nextLine();
-        System.out.print("Enter product name: ");
-        name=sc.nextLine();
-        System.out.print("Enter product brand: ");
-        brand=sc.nextLine();
-        System.out.print("Enter product price: ");
-        price=sc.nextLine();
+        setID();
+        setName();
+        setBrand();
+        setPrice();
     }
 
+    public void editProduct(){
+        boolean found = false;
+        System.out.print("Enter product ID you want to edit: ");
+        String editID = sc.nextLine();
+        for (Product product : productsList){
+            if (product.ID.equals(editID)){
+                found = true;
+                product.addProductInfo();
+                break;
+            }
+            else {
+                found = false;
+            }
+        }
+        if (!found) {
+            System.out.println("Not found!");
+            return;
+        }
+    }
 
     public void productInfoTable(){
         System.out.format("%-15s %-20s %-10s %-15s %-20s\n", "ID" , "Name" , "Price" , "Brand" , "Other info");

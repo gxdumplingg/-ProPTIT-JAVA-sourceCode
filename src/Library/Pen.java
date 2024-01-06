@@ -4,29 +4,34 @@ public class Pen extends Product{
     private String penColor, penMaterial, penInkType, penFineness;
 
     public String getPenColor() {
-        return penColor;
+        return "Product color: " + penColor;
     }
     public String getPenMaterial() {
-        return penMaterial;
+        return "Product material: " + penMaterial;
     }
     public String getPenInkType() {
-        return penInkType;
+        return "Product ink type: " + penInkType;
     }
     public String getPenFineness() {
-        return penFineness;
+        return "Product fineness: " + penFineness;
     }
 
-    public void setPenColor(String penColor) {
-        this.penColor = penColor;
+    public void setPenColor() {
+        System.out.print("Enter product color: ");
+        penColor = sc.nextLine();
     }
-    public void setPenMaterial(String penMaterial) {
-        this.penMaterial = penMaterial;
+    public void setPenMaterial() {
+        System.out.print("Enter product material (plastic, metal): ");
+        penMaterial = sc.nextLine();
     }
-    public void setPenInkType(String penInkType) {
-        this.penInkType = penInkType;
+    public void setPenInkType() {
+        System.out.print("Enter product ink type (oil, water-based): ");
+        penInkType = sc.nextLine();
     }
-    public void setPenFineness(String penFineness) {
-        this.penFineness = penFineness;
+    public void setPenFineness() {
+        System.out.print("Enter product fineness (0.5mm, 0.7mm, 1mm, 1.5mm, " +
+                "2mm, 2.5mm, 3mm, 3.5mm, 4mm, 4.5mm, 5mm): ");
+        penFineness = sc.nextLine();
     }
 
     @Override
@@ -45,15 +50,10 @@ public class Pen extends Product{
     @Override
     public void addProductInfo(){
         super.addProductInfo();
-        System.out.print("Enter product color: ");
-        setPenColor(sc.nextLine());
-        System.out.print("Enter product material (plastic, metal): ");
-        setPenMaterial(sc.nextLine());
-        System.out.print("Enter product ink type (oil, water-based): ");
-        setPenInkType(sc.nextLine());
-        System.out.print("Enter product fineness (0.5mm, 0.7mm, 1mm, 1.5mm, " +
-                            "2mm, 2.5mm, 3mm, 3.5mm, 4mm, 4.5mm, 5mm): ");
-        setPenFineness(sc.nextLine());
+        setPenColor();
+        setPenMaterial();
+        setPenInkType();
+        setPenFineness();
     }
 
     public void productTable(){

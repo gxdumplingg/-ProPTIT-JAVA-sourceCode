@@ -37,20 +37,16 @@ public class Admin extends Guest {
         int option = Integer.parseInt(sc.nextLine());
         switch (option) {
             case 1:
-                updateBook();
-                System.out.println("Successfully updated!");
+                editProduct();
                 break;
             case 2:
-                updateNotebook();
-                System.out.println("Successfully updated!");
+                editProduct();
                 break;
             case 3:
                 updatePen();
-                System.out.println("Successfully updated!");
                 break;
             case 4:
                 updatePencil();
-                System.out.println("Successfully updated!");
                 break;
             default:
                 System.out.println("Invalid option! Please re-enter!");

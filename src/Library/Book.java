@@ -6,64 +6,73 @@ public class Book extends Product {
 
     private String author, genre, publisher, publishedYear, language;
 
-    public void setAuthor(String author){
-        this.author = author;
+    public void setAuthor(){
+        System.out.print("Enter product author: ");
+        author = sc.nextLine();
+            }
+    public void setGenre() {
+        System.out.print("Enter product genre: ");
+        genre = sc.nextLine();
     }
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setPublisher() {
+        System.out.print("Enter product publisher: ");
+        publisher = sc.nextLine();
     }
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPublishedYear() {
+        System.out.print("Enter product published year: ");
+        publishedYear = sc.nextLine();
     }
-    public void setPublishedYear(String date) {
-        this.publishedYear = date;
-    }
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguage() {
+        System.out.print("Enter product language: ");
+        language = sc.nextLine();
     }
 
 
     public String getAuthor() {
-        return author;
+        return "Product author: " + author;
     }
     public String getGenre() {
-        return genre;
+        return "Product genre: " + genre;
     }
     public String getPublisher() {
-        return publisher;
+        return "Product publisher: " + publisher;
     }
     public String getPublishedYear() {
-        return publishedYear;
+        return "Product published year: " + publishedYear;
     }
     public String getLanguage() {
-        return language;
+        return "Product language: " + language;
     }
 
     @Override
     public void getProductInfo(){
         super.getProductInfo();
-        System.out.println("Product genre: " + getGenre());
-        System.out.println("Product author: " + getAuthor());
-        System.out.println("Product publisher: " + getPublisher());
-        System.out.println("Product published year: " + getPublishedYear());
-        System.out.println("Product language: " + getLanguage());
+        System.out.println(getGenre());
+        System.out.println(getAuthor());
+        System.out.println(getPublisher());
+        System.out.println(getPublishedYear());
+        System.out.println(getLanguage());
     }
 
     @Override
     public void addProductInfo(){
         super.addProductInfo();
-        System.out.print("Enter product genre: ");
-        setGenre(sc.nextLine());
-        System.out.print("Enter product author: ");
-        setAuthor(sc.nextLine());
-        System.out.print("Enter product publisher: ");
-        setPublisher(sc.nextLine());
-        System.out.print("Enter product published year: ");
-        setPublishedYear(sc.nextLine());
-        System.out.print("Enter product language: ");
-        setLanguage(sc.nextLine());
+        setGenre();
+        setAuthor();
+        setPublisher();
+        setPublishedYear();
+        setLanguage();
     }
 
+//    @Override
+//    public void editProduct(){
+//        super.editProduct();
+//        setGenre();
+//        setAuthor();
+//        setPublisher();
+//        setPublishedYear();
+//        setLanguage();
+//    }
     @Override
     public boolean cmp(String bookInfo){
         return super.cmp(bookInfo) || super.compare(author, bookInfo) || super.compare(genre, bookInfo) ||

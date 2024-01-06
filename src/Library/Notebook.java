@@ -4,35 +4,40 @@ public class Notebook extends Product{
     private String pageNumbers, notebookType, notebookColor, paperMaterials, notebookSize;
 
     public String getPageNumbers() {
-        return pageNumbers;
+        return "Product page number: " + pageNumbers;
     }
     public String getType() {
-        return notebookType;
+        return "Product type: " + notebookType;
     }
     public String getColor() {
-        return notebookColor;
+        return "Product color: " + notebookColor;
     }
     public String getPaperMaterials() {
-        return paperMaterials;
+        return "Product paper material: " + paperMaterials;
     }
     public String getSize() {
-        return notebookSize;
+        return "Product size: " + notebookSize;
     }
 
-    public void setPageNumbers(String pageNumbers) {
-        this.pageNumbers = pageNumbers;
+    public void setPageNumbers() {
+        System.out.print("Enter product page number: ");
+        pageNumbers = sc.nextLine();
     }
-    public void setType(String type) {
-        this.notebookType = type;
+    public void setType() {
+        System.out.print("Enter product type (line, grid, plain) : ");
+        notebookType = sc.nextLine();
     }
-    public void setColor(String notebookColor) {
-        this.notebookColor = notebookColor;
+    public void setColor() {
+        System.out.print("Enter product color: ");
+        notebookColor = sc.nextLine();
     }
-    public void setPaperMaterials(String paperMaterials) {
-        this.paperMaterials = paperMaterials;
+    public void setPaperMaterials() {
+        System.out.print("Enter product paper material: ");
+        paperMaterials = sc.nextLine();
     }
-    public void setSize(String notebookSize) {
-        this.notebookSize = notebookSize;
+    public void setSize() {
+        System.out.print("Enter product size (A4, A5, A6): ");
+        notebookSize = sc.nextLine();
     }
 
     @Override
@@ -52,16 +57,11 @@ public class Notebook extends Product{
     @Override
     public void addProductInfo(){
         super.addProductInfo();
-        System.out.print("Enter product page number: ");
-        setPageNumbers(sc.nextLine());
-        System.out.print("Enter product type (line, grid, plain) : ");
-        setType(sc.nextLine());
-        System.out.print("Enter product color: ");
-        setColor(sc.nextLine());
-        System.out.print("Enter product paper material: ");
-        setPaperMaterials(sc.nextLine());
-        System.out.print("Enter product size (A4, A5, A6): ");
-       setSize(sc.nextLine());
+        setPageNumbers();
+        setType();
+        setColor();
+        setPaperMaterials();
+        setSize();
     }
 
     public void productTable(){
